@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/bookListFragment">
+    <fragment
+        android:id="@+id/bookListFragment"
+        android:name="io.graduation.haui.ui.book_list.BookListFragment"
+        android:label="fragment_book_list"
+        tools:layout="@layout/fragment_book_list" >
+        <action
+            android:id="@+id/action_bookListFragment_to_unitListFragment"
+            app:destination="@id/unitListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/unitListFragment"
+        android:name="io.graduation.haui.ui.unit_list.UnitListFragment"
+        android:label="UnitListFragment"
+        tools:layout="@layout/fragment_unit_list">
+        <action
+            android:id="@+id/action_unitListFragment_to_vocabularyListFragment"
+            app:destination="@id/vocabularyListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vocabularyListFragment"
+        android:name="io.graduation.haui.ui.vocabulary_list.VocabularyListFragment"
+        android:label="fragment_vocabulary_list"
+        tools:layout="@layout/fragment_vocabulary_list" />
+</navigation>

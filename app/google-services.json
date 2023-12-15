@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "584327824528",
+    "project_id": "essential-english-words-5f169",
+    "storage_bucket": "essential-english-words-5f169.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584327824528:android:b48a4a45d5953e007ac415",
+        "android_client_info": {
+          "package_name": "io.graduation.haui.development"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHdMwCR4OQlN3En0ELr7aFUJJ0H7P2mlA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584327824528:android:892f0aadcf07e91c7ac415",
+        "android_client_info": {
+          "package_name": "io.lion.pushvocab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHdMwCR4OQlN3En0ELr7aFUJJ0H7P2mlA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
