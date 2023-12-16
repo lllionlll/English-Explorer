@@ -12,7 +12,7 @@ class BookListFragment : BaseFragment<FragmentBookListBinding>(
 ) {
 
     private val bookListVM by viewModels<BookListVM>()
-    private var bookListAdapter = BookListAdapter(
+    private var bookListAdapter = BookListNewAdapter(
         onOpenBook = { bookId ->
             BookListNavigation.goToUnit(this, bookId)
         }
@@ -41,7 +41,7 @@ class BookListFragment : BaseFragment<FragmentBookListBinding>(
 
         bookListVM.bookDetailList.observe(viewLifecycleOwner) { bookList ->
             if (bookList.isNotEmpty()) {
-                bookListAdapter.setBookList(bookList)
+                bookListAdapter.setListItem(bookList)
             }
         }
     }

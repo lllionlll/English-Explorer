@@ -13,7 +13,7 @@ class VocabularyListFragment : BaseFragment<FragmentVocabularyListBinding>(
 
     override fun onResume() {
         super.onResume()
-        NavGraph.goToUnit(this, 2)
+        //NavGraph.goToUnit(this, 2)
     }
 
     private val vocabularyListVM by viewModels<VocabularyListVM>()
