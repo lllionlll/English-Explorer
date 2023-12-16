@@ -18,6 +18,10 @@
         android:name="io.graduation.haui.ui.unit_list.UnitListFragment"
         android:label="UnitListFragment"
         tools:layout="@layout/fragment_unit_list">
+        <argument
+            android:name="bookId"
+            app:argType="integer"
+            android:defaultValue="-1" />
         <action
             android:id="@+id/action_unitListFragment_to_vocabularyListFragment"
             app:destination="@id/vocabularyListFragment" />

@@ -48,10 +48,6 @@ abstract class BaseFragment<VB : ViewBinding>(
         })
     }
 
-    open fun onBackPressed() {
-
-    }
-
     open fun initData() {
 
     }

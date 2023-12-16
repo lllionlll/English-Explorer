@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
     id 'com.google.gms.google-services'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -58,6 +59,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
         buildConfig = true
     }
 }
@@ -75,7 +77,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     //firebase
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.9.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.10.0'
 
     // gg
     implementation 'com.google.android.gms:play-services-auth:20.7.0'

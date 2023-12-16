@@ -1,8 +1,6 @@
 package io.graduation.haui.ui.unit_list
 
-import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import io.graduation.haui.R
 import io.graduation.haui.bases.BaseFragment
@@ -25,10 +23,16 @@ class UnitListFragment : BaseFragment<FragmentUnitListBinding>(
         }
     )
 
+    override fun initData() {
+        super.initData()
+        this.arguments?.getInt("BOOK")?.let { book ->
+            unitListVM.getUnitList(book = book)
+        }
+    }
+
     override fun setUpView() {
         super.setUpView()
         binding.rcUnitList.adapter = unitAdapter
-        unitListVM.getUnitList(book = 1)
     }
 
     override fun observerData() {

@@ -2,11 +2,9 @@ package io.graduation.haui.ui.book_list
 
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import io.graduation.haui.R
 import io.graduation.haui.bases.BaseFragment
 import io.graduation.haui.databinding.FragmentBookListBinding
 import io.graduation.haui.utils.LoadingDialog
-import io.graduation.haui.utils.navigate
 
 @AndroidEntryPoint
 class BookListFragment : BaseFragment<FragmentBookListBinding>(
@@ -15,18 +13,20 @@ class BookListFragment : BaseFragment<FragmentBookListBinding>(
 
     private val bookListVM by viewModels<BookListVM>()
     private var bookListAdapter = BookListAdapter(
-        onOpenBook = { book ->
-            navigate(
-                R.layout.fragment_book_list,
-                R.id.unitListFragment
-            )
+        onOpenBook = { bookId ->
+            BookListNavigation.goToUnit(this, bookId)
         }
     )
+
+    override fun initData() {
+        super.initData()
+        bookListVM.getBookList()
+    }
 
     override fun setUpView() {
         super.setUpView()
         binding.rcBookList.adapter = bookListAdapter
-        bookListVM.getBookList()
+        binding.rcBookList.itemAnimator = null
     }
 
     override fun observerData() {
