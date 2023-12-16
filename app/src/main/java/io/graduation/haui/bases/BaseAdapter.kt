@@ -1,52 +1,42 @@
 package io.graduation.haui.bases
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
 
-abstract class BaseAdapter<T, B: ViewDataBinding>: RecyclerView.Adapter<BaseAdapter<T, B>.BaseViewHolder>() {
+abstract class BaseAdapter<T, B : ViewBinding>() :
+    RecyclerView.Adapter<BaseAdapter<T, B>.BaseViewHolder<T>>() {
 
-    private val itemList: MutableList<T> = mutableListOf()
+    val itemList: MutableList<T> = mutableListOf()
 
-    inner class BaseViewHolder(val binding: B): RecyclerView.ViewHolder(binding.root) {
+    open inner class BaseViewHolder<A>(val binding: B) : RecyclerView.ViewHolder(binding.root) {
+
+        private var item: T? = null
 
         init {
-            setItemClick(binding)
+           // setItemClick(binding)
         }
 
-        fun setData(itemData: T) {
-            setItemData(itemData)
+        open fun setData(item: T) {
+            this.item = item
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = DataBindingUtil.inflate<B>(
-            inflater,
-            getLayoutIdForType(viewType),
-            parent,
-            false
-        )
-
-        return BaseViewHolder(binding)
-    }
+//    abstract fun  setItemClick(binding: B)
 
     override fun getItemCount(): Int {
         return itemList.size
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder<T>, position: Int) {
         itemList.getOrNull(position)?.let { data ->
             holder.setData(data)
         }
     }
 
-    abstract fun getLayoutIdForType(viewType: Int): Int
 
-    abstract fun setItemData(itemData: T)
-
-    abstract fun setItemClick(binding: B)
-
+    fun setListItem(itemList: MutableList<T>) {
+        this.itemList.clear()
+        this.itemList.addAll(itemList)
+        notifyItemRangeInserted(0, itemList.size)
+    }
 }
