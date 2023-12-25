@@ -16,10 +16,6 @@ abstract class BaseActivity<VB : ViewBinding>(private val bindingInflater: (Layo
 
     val binding by lazy { bindingInflater(layoutInflater) }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

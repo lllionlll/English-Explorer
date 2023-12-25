@@ -2,35 +2,28 @@ package io.graduation.haui.ui.unit_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import io.graduation.haui.bases.BaseAdapter
 import io.graduation.haui.data.model.UnitDetail
 import io.graduation.haui.databinding.ItemUnitBinding
 
 class UnitAdapter(
-    val openUnit: (Int) -> Unit = {}
-) : RecyclerView.Adapter<UnitAdapter.VocabularyUnitViewHolder>() {
+    val onClickUnit: (Int) -> Unit = {}
+) : BaseAdapter<UnitDetail, ItemUnitBinding>() {
 
-    private var unitList = mutableListOf<UnitDetail>()
-
-    inner class VocabularyUnitViewHolder(private val binding: ItemUnitBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class VocabularyUnitViewHolder(binding: ItemUnitBinding) : BaseViewHolder(binding) {
         init {
             binding.root.setOnClickListener {
-                openUnit.invoke(layoutPosition)
+                onClickUnit.invoke(layoutPosition)
             }
         }
 
-        fun setData(unitDetail: UnitDetail) {
+        override fun setData(item: UnitDetail) {
             binding.unitName.text = String.format(
                 "Unit %s: %s",
-                unitDetail.unit.toString(),
-                unitDetail.unitName
+                item.unit.toString(),
+                item.unitName
             )
         }
-    }
-
-    fun addUnitList(unitList: MutableList<UnitDetail>) {
-        this.unitList = unitList
-        notifyItemRangeInserted(0, unitList.size)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VocabularyUnitViewHolder {
@@ -39,13 +32,4 @@ class UnitAdapter(
         return VocabularyUnitViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: VocabularyUnitViewHolder, position: Int) {
-        unitList.getOrNull(position)?.let { unitDetail ->
-            holder.setData(unitDetail)
-        }
-    }
-
-    override fun getItemCount(): Int {
-        return unitList.size
-    }
 }

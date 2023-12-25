@@ -1,12 +1,11 @@
 package io.graduation.haui.ui.unit_list
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
-import io.graduation.haui.R
 import io.graduation.haui.bases.BaseFragment
 import io.graduation.haui.databinding.FragmentUnitListBinding
 import io.graduation.haui.utils.LoadingDialog
-import io.graduation.haui.utils.navigate
 
 @AndroidEntryPoint
 class UnitListFragment : BaseFragment<FragmentUnitListBinding>(
@@ -14,25 +13,22 @@ class UnitListFragment : BaseFragment<FragmentUnitListBinding>(
 ) {
 
     private val unitListVM by viewModels<UnitListVM>()
+    private val safeArgs by navArgs<UnitListFragmentArgs>()
+
     private val unitAdapter = UnitAdapter(
-        openUnit = {
-            navigate(
-                R.id.unitListFragment,
-                R.id.vocabularyListFragment
+        onClickUnit = { bookId ->
+            UnitListRoute.goToVocabulary(
+                fragment = this,
+                bookId = bookId
             )
         }
     )
 
     override fun initData() {
         super.initData()
-        this.arguments?.getInt("BOOK")?.let { book ->
-            unitListVM.getUnitList(book = book)
-        }
-    }
-
-    override fun setUpView() {
-        super.setUpView()
         binding.rcUnitList.adapter = unitAdapter
+        binding.rcUnitList.itemAnimator = null
+        unitListVM.getUnitList(book = safeArgs.bookId)
     }
 
     override fun observerData() {
@@ -48,7 +44,7 @@ class UnitListFragment : BaseFragment<FragmentUnitListBinding>(
 
         unitListVM.unitList.observe(viewLifecycleOwner) { unitList ->
             if (unitList.isNotEmpty()) {
-                unitAdapter.addUnitList(unitList = unitList)
+                unitAdapter.setItemList(itemList = unitList)
             }
         }
     }

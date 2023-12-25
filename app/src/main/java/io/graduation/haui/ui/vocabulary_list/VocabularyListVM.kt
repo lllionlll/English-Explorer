@@ -21,16 +21,16 @@ class VocabularyListVM @Inject constructor(
     val vocabularyList = MutableLiveData<MutableList<WordDetail>>()
 
     fun getVocabularyList(
-        book: Int,
-        unit: Int
+        bookId: Int,
+        unitId: Int
     ) {
         viewModelScope.launch {
             try {
                 isLoading.value = true
                 val getVocabularyResult = withContext(Dispatchers.IO) {
                     englishExplorerRepository.getVocabularyListByBookAndUnit(
-                        book = book,
-                        unit = unit
+                        bookId = bookId,
+                        unitId = unitId
                     )
                 }
                 if (getVocabularyResult is DataResult.Success) {

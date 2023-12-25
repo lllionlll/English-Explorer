@@ -15,13 +15,13 @@ class EnglishExplorerRepository {
     private val fb = FirebaseFirestore.getInstance()
 
     fun getVocabularyListByBookAndUnit(
-        book: Int,
-        unit: Int
+        bookId: Int,
+        unitId: Int
     ): DataResult<MutableList<WordDetail>> {
         return try {
             val getVocabularyList = fb.collection("word_list")
-                .whereEqualTo("book", book)
-                .whereEqualTo("unit", unit)
+                .whereEqualTo("book", bookId)
+                .whereEqualTo("unit", unitId)
                 .orderBy("word", Query.Direction.ASCENDING)
                 .get()
 
@@ -47,11 +47,11 @@ class EnglishExplorerRepository {
     }
 
     fun getUnitListByBook(
-        book: Int
+        bookId: Int
     ): DataResult<MutableList<UnitDetail>> {
         return try {
             val getUnitList = fb.collection("unit_list")
-                .whereEqualTo("book", book)
+                .whereEqualTo("book", bookId)
                 .orderBy("unit", Query.Direction.ASCENDING)
                 .get()
 

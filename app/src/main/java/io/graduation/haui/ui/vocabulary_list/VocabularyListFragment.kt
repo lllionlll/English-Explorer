@@ -1,6 +1,7 @@
 package io.graduation.haui.ui.vocabulary_list
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import io.graduation.haui.bases.BaseFragment
 import io.graduation.haui.databinding.FragmentVocabularyListBinding
@@ -11,20 +12,18 @@ class VocabularyListFragment : BaseFragment<FragmentVocabularyListBinding>(
     FragmentVocabularyListBinding::inflate
 ) {
 
-    override fun onResume() {
-        super.onResume()
-        //NavGraph.goToUnit(this, 2)
-    }
-
     private val vocabularyListVM by viewModels<VocabularyListVM>()
+    private val safeVarargs by navArgs<VocabularyListFragmentArgs>()
+
     private val vocabularyListAdapter = VocabularyListAdapter()
 
-    override fun setUpView() {
-        super.setUpView()
+    override fun initData() {
+        super.initData()
         binding.rcVocabularyList.adapter = vocabularyListAdapter
+        binding.rcVocabularyList.itemAnimator = null
         vocabularyListVM.getVocabularyList(
-            book = 1,
-            unit = 1
+            bookId = safeVarargs.bookId,
+            unitId = safeVarargs.unitId
         )
     }
 
@@ -41,7 +40,7 @@ class VocabularyListFragment : BaseFragment<FragmentVocabularyListBinding>(
 
         vocabularyListVM.vocabularyList.observe(this) { vocabularyList ->
             if (vocabularyList.isNotEmpty()) {
-                vocabularyListAdapter.addVocabularyList(vocabularyList = vocabularyList)
+                vocabularyListAdapter.setItemList(itemList = vocabularyList)
             }
         }
 
