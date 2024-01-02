@@ -3,46 +3,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.menu_list.MenuListFragment">
+    tools:context=".ui.menu.MenuFragment">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
+            android:id="@+id/learnVocabulary"
             android:padding="16dp"
-            android:text="Học từ vựng theo sách"
+            android:text="Học từ vựng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <TextView
-            android:padding="16dp"
-            android:text="Học từ vựng theo chủ đề"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+<!--        <TextView-->
+<!--            android:padding="16dp"-->
+<!--            android:text="Học từ vựng theo chủ đề"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
 
-        <TextView
-            android:padding="16dp"
-            android:text="học ngữ pháp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+<!--        <TextView-->
+<!--            android:padding="16dp"-->
+<!--            android:text="học ngữ pháp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
 
-        <TextView
-            android:text="học nói"
-            android:padding="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+<!--        <TextView-->
+<!--            android:text="học nói"-->
+<!--            android:padding="16dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
 
-        <TextView
-            android:padding="16dp"
-            android:text="luyện thi toeic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+<!--        <TextView-->
+<!--            android:padding="16dp"-->
+<!--            android:text="luyện thi toeic"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
 
-        <TextView
-            android:padding="16dp"
-            android:text="luyện thi ielts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+<!--        <TextView-->
+<!--            android:padding="16dp"-->
+<!--            android:text="luyện thi ielts"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
     </LinearLayout>
 </FrameLayout>

@@ -5,11 +5,6 @@ import androidx.navigation.fragment.findNavController
 
 object BookListRoute {
 
-    fun goToUnit(fragment: Fragment, bookId: Int = -1) {
-        val action = BookListFragmentDirections.actionBookListFragmentToUnitListFragment(
-            bookId = bookId
-        )
-        fragment.findNavController().navigate(action)
-    }
+
 
 }

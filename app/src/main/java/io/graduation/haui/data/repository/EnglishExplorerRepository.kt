@@ -14,13 +14,11 @@ class EnglishExplorerRepository {
 
     private val fb = FirebaseFirestore.getInstance()
 
-    fun getVocabularyListByBookAndUnit(
-        bookId: Int,
+    fun getVocabularyListByUnit(
         unitId: Int
     ): DataResult<MutableList<WordDetail>> {
         return try {
             val getVocabularyList = fb.collection("word_list")
-                .whereEqualTo("book", bookId)
                 .whereEqualTo("unit", unitId)
                 .orderBy("word", Query.Direction.ASCENDING)
                 .get()
@@ -28,8 +26,8 @@ class EnglishExplorerRepository {
             when (val handleFirebaseResult = handleFirebaseTask(getVocabularyList)) {
 
                 is ApiSuccess -> {
-                    val wordList = handleFirebaseResult.data.toObjects(WordDetail::class.java)
-                    DataResult.Success(wordList)
+                    val vocabularyList = handleFirebaseResult.data.toObjects(WordDetail::class.java)
+                    DataResult.Success(vocabularyList)
                 }
 
                 is ApiException -> {
@@ -46,12 +44,9 @@ class EnglishExplorerRepository {
         }
     }
 
-    fun getUnitListByBook(
-        bookId: Int
-    ): DataResult<MutableList<UnitDetail>> {
+    fun getUnitList(): DataResult<MutableList<UnitDetail>> {
         return try {
             val getUnitList = fb.collection("unit_list")
-                .whereEqualTo("book", bookId)
                 .orderBy("unit", Query.Direction.ASCENDING)
                 .get()
 

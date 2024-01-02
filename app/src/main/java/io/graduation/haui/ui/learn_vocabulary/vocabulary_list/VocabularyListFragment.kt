@@ -1,4 +1,4 @@
-package io.graduation.haui.ui.vocabulary_list
+package io.graduation.haui.ui.learn_vocabulary.vocabulary_list
 
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -22,7 +22,6 @@ class VocabularyListFragment : BaseFragment<FragmentVocabularyListBinding>(
         binding.rcVocabularyList.adapter = vocabularyListAdapter
         binding.rcVocabularyList.itemAnimator = null
         vocabularyListVM.getVocabularyList(
-            bookId = safeVarargs.bookId,
             unitId = safeVarargs.unitId
         )
     }

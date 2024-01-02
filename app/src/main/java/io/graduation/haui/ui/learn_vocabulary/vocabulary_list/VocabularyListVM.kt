@@ -1,4 +1,4 @@
-package io.graduation.haui.ui.vocabulary_list
+package io.graduation.haui.ui.learn_vocabulary.vocabulary_list
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,15 +21,13 @@ class VocabularyListVM @Inject constructor(
     val vocabularyList = MutableLiveData<MutableList<WordDetail>>()
 
     fun getVocabularyList(
-        bookId: Int,
         unitId: Int
     ) {
         viewModelScope.launch {
             try {
                 isLoading.value = true
                 val getVocabularyResult = withContext(Dispatchers.IO) {
-                    englishExplorerRepository.getVocabularyListByBookAndUnit(
-                        bookId = bookId,
+                    englishExplorerRepository.getVocabularyListByUnit(
                         unitId = unitId
                     )
                 }

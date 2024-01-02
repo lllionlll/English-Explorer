@@ -1,7 +1,11 @@
-package io.graduation.haui.ui.unit_list
+package io.graduation.haui.ui.learn_vocabulary.unit_list
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import com.bumptech.glide.Glide
+import io.graduation.haui.R
 import io.graduation.haui.bases.BaseAdapter
 import io.graduation.haui.data.model.UnitDetail
 import io.graduation.haui.databinding.ItemUnitBinding
@@ -18,11 +22,15 @@ class UnitAdapter(
         }
 
         override fun setData(item: UnitDetail) {
-            binding.unitName.text = String.format(
-                "Unit %s: %s",
-                item.unit.toString(),
-                item.unitName
-            )
+            binding.unitName.text = item.unitName
+            Glide.with(binding.root)
+                .load(R.mipmap.ic_launcher)
+                .into(binding.unitImage)
+            item.unitImage?.let {
+                Glide.with(binding.root)
+                    .load(item.unitImage)
+                    .into(binding.unitImage)
+            }
         }
     }
 

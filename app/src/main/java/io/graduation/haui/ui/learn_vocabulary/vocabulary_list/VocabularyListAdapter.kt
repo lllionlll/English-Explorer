@@ -1,4 +1,4 @@
-package io.graduation.haui.ui.vocabulary_list
+package io.graduation.haui.ui.learn_vocabulary.vocabulary_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,4 +1,4 @@
-package io.graduation.haui.ui.unit_list
+package io.graduation.haui.ui.learn_vocabulary.unit_list
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,12 +20,12 @@ class UnitListVM @Inject constructor(
     val isLoading = MutableLiveData<Boolean>()
     val unitList = MutableLiveData<MutableList<UnitDetail>>()
 
-    fun getUnitList(book: Int) {
+    fun getUnitList() {
         viewModelScope.launch {
             try {
                 isLoading.value = true
                 val getUnitListResult = withContext(Dispatchers.IO) {
-                    englishExplorerRepository.getUnitListByBook(book)
+                    englishExplorerRepository.getUnitList()
                 }
                 if (getUnitListResult is DataResult.Success) {
                     val unitListData = getUnitListResult.data

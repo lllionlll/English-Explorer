@@ -14,10 +14,10 @@ class BookListFragment : BaseFragment<FragmentBookListBinding>(
     private val bookListVM by viewModels<BookListVM>()
     private var bookListAdapter = BookListAdapter(
         onClickBook = { bookId ->
-            BookListRoute.goToUnit(
-                fragment = this,
-                bookId = bookId
-            )
+//            BookListRoute.goToUnit(
+//                fragment = this,
+//                bookId = bookId
+//            )
         }
     )
 
