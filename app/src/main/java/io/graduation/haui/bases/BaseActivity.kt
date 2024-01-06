@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.viewbinding.ViewBinding
+import io.graduation.haui.MyApplication
 import io.graduation.haui.R
 
 abstract class BaseActivity<VB : ViewBinding>(private val bindingInflater: (LayoutInflater) -> VB) :

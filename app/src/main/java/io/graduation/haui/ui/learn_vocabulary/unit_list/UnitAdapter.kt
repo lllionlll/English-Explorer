@@ -17,7 +17,11 @@ class UnitAdapter(
     inner class VocabularyUnitViewHolder(binding: ItemUnitBinding) : BaseViewHolder(binding) {
         init {
             binding.root.setOnClickListener {
-                onClickUnit.invoke(layoutPosition)
+                itemList.getOrNull(layoutPosition)?.let { unitDetail ->
+                    unitDetail.unit?.let { unitId ->
+                        onClickUnit.invoke(unitId)
+                    }
+                }
             }
         }
 

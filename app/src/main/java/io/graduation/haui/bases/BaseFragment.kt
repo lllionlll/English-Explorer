@@ -33,26 +33,22 @@ abstract class BaseFragment<VB : ViewBinding>(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         observerData()
-        setUpView()
+        initView()
         handleEvent()
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner , object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 findNavController().navigateUp()
             }
         })
+        return binding.root
     }
 
     open fun initData() {
 
     }
 
-    open fun setUpView() {
+    open fun initView() {
 
     }
 

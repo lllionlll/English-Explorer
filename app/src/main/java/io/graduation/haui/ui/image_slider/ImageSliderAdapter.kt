@@ -1,32 +1,29 @@
 package io.graduation.haui.ui.image_slider
 
-import android.content.Context
-import android.view.View
+import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.viewpager.widget.PagerAdapter
+import io.graduation.haui.bases.BaseAdapter
+import io.graduation.haui.databinding.ItemImageSliderBinding
 
-class ImageSliderAdapter(private val context: Context) : PagerAdapter() {
+class ImageSliderAdapter : BaseAdapter<Int, ItemImageSliderBinding>() {
 
-    private val images = arrayOf<String>()
+    inner class ImageSliderViewHolder(binding: ItemImageSliderBinding) : BaseViewHolder(binding) {
 
-    override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val imageView = ImageView(context)
-//        imageView.setImageResource(images[position])
-        imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-        container.addView(imageView)
-        return imageView
+        override fun setData(item: Int) {
+            binding.image.setImageResource(item)
+        }
     }
 
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        container.removeView(`object` as View)
-    }
-
-    override fun getCount(): Int {
-        return images.size
-    }
-
-    override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view == `object`
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): BaseViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemImageSliderBinding.inflate(inflater, parent, false)
+        binding.root.layoutParams = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT
+        )
+        return ImageSliderViewHolder(binding)
     }
 }
