@@ -4,28 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/layoutAppbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/layout_app_bar"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Học từ vựng"
-            android:textSize="16sp" />
-    </LinearLayout>
+        />
 
     <androidx.core.widget.NestedScrollView
+        android:background="#DFD3C3"
         android:layout_width="match_parent"
         android:fillViewport="true"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutAppbar">
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -35,8 +28,6 @@
                 android:id="@+id/vpUnitList"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:background="@color/white"
-                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

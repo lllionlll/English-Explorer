@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_unitListFragment_to_vocabularyListFragment"
             app:destination="@id/vocabularyListFragment" />
+        <action
+            android:id="@+id/action_unitListFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/vocabularyListFragment"
@@ -35,5 +38,18 @@
         <action
             android:id="@+id/action_menuListFragment_to_unitListFragment"
             app:destination="@id/unitListFragment" />
+        <action
+            android:id="@+id/action_menuListFragment_to_speechToTextFragment"
+            app:destination="@id/speechToTextFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/speechToTextFragment"
+        android:name="io.graduation.haui.ui.learn_speak.SpeechToTextFragment"
+        android:label="fragment_speech_to_text"
+        tools:layout="@layout/fragment_speech_to_text" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="io.graduation.haui.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>

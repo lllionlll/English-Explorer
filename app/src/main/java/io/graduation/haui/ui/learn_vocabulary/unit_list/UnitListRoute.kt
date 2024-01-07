@@ -12,4 +12,13 @@ object UnitListRoute {
         fragment.findNavController().navigate(action)
     }
 
+    fun goToSearch(fragment: Fragment) {
+        val action = UnitListFragmentDirections.actionUnitListFragmentToSearchFragment()
+        fragment.findNavController().navigate(action)
+    }
+
+    fun back(fragment: Fragment) {
+        fragment.findNavController().popBackStack()
+    }
+
 }

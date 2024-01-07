@@ -26,6 +26,18 @@ class VocabularyListFragment : BaseFragment<FragmentVocabularyListBinding>(
         )
     }
 
+    override fun handleEvent() {
+        super.handleEvent()
+        setUpAppbar()
+    }
+
+    private fun setUpAppbar() {
+        binding.appBar.btnBack.setOnClickListener {
+            VocabularyListRoute.back(this)
+        }
+        binding.appBar.title.text = "Vocabulary"
+    }
+
     override fun observerData() {
         super.observerData()
 

@@ -3,51 +3,105 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="16dp">
+    android:layout_marginTop="8dp"
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/unitImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:cardCornerRadius="16dp"
+            android:layout_marginHorizontal="16dp"
+            app:cardCornerRadius="100dp"
             app:cardElevation="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/image"
+                android:id="@+id/wordImage"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/home" />
 
         </androidx.cardview.widget.CardView>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/layoutImage"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
-            android:layout_margin="16dp"
-            android:id="@+id/unitName"
-            android:gravity="center"
+            android:textIsSelectable="true"
+            android:id="@+id/word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#00C853"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/unitImage"
-            app:layout_constraintStart_toStartOf="@+id/unitImage"
-            app:layout_constraintTop_toBottomOf="@+id/unitImage"
-            tools:text="Unit 1" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Word 1" />
+
+        <TextView
+            android:id="@+id/internationalPhonetic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:textColor="#AFAFAF"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/word"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="pronun" />
+
+        <TextView
+            android:id="@+id/wordType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:textColor="#AFAFAF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/internationalPhonetic"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="adj." />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:textIsSelectable="true"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/word"
+            tools:text="Đây là mô tả" />
+
+        <TextView
+            android:id="@+id/example"
+            android:textIsSelectable="true"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description"
+            tools:text="Đây là ví dụ" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

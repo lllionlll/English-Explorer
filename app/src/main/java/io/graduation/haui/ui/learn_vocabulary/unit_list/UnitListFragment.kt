@@ -64,8 +64,23 @@ class UnitListFragment : BaseFragment<FragmentUnitListBinding>(
 
     override fun initView() {
         super.initView()
+        setUpAppBar()
         setUpUnitListAdapter()
         setUpImageSliderAdapter()
+    }
+
+    private fun setUpAppBar() {
+        binding.appBar.title.text = "Học từ vựng"
+    }
+
+    override fun handleEvent() {
+        super.handleEvent()
+        binding.appBar.btnBack.setOnClickListener {
+            UnitListRoute.back(this)
+        }
+        binding.appBar.btnSearch.setOnClickListener {
+            UnitListRoute.goToSearch(this)
+        }
     }
 
     private fun setUpUnitListAdapter() {
@@ -76,11 +91,12 @@ class UnitListFragment : BaseFragment<FragmentUnitListBinding>(
     private fun setUpImageSliderAdapter() {
         imageSliderAdapter.setItemList(
             mutableListOf(
-                R.mipmap.ic_launcher,
-                R.drawable.home,
-                R.drawable.ic_launcher_background,
-                R.mipmap.ic_launcher,
-                R.drawable.home
+                R.drawable.b4,
+                R.drawable.b1,
+                R.drawable.b2,
+                R.drawable.b3,
+                R.drawable.b4,
+                R.drawable.b1
             )
         )
         binding.vpUnitList.adapter = imageSliderAdapter

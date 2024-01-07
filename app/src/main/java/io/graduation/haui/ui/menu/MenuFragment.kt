@@ -12,6 +12,9 @@ class MenuFragment : BaseFragment<FragmentMenuListBinding>(
         binding.learnVocabulary.setOnClickListener {
             MenuRoute.goToUnit(this)
         }
+        binding.learnSpeak.setOnClickListener {
+            MenuRoute.goToSpeechToText(this)
+        }
     }
 
 }

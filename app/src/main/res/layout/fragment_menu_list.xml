@@ -16,11 +16,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-<!--        <TextView-->
-<!--            android:padding="16dp"-->
-<!--            android:text="Học từ vựng theo chủ đề"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"/>-->
+        <TextView
+            android:id="@+id/learnGrammar"
+            android:padding="16dp"
+            android:text="Học ngữ pháp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/learnSpeak"
+            android:padding="16dp"
+            android:text="Luyện nói"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
 <!--        <TextView-->
 <!--            android:padding="16dp"-->

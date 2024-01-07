@@ -10,4 +10,9 @@ object MenuRoute {
         fragment.findNavController().navigate(action)
     }
 
+    fun goToSpeechToText(fragment: Fragment) {
+        val action = MenuFragmentDirections.actionMenuListFragmentToSpeechToTextFragment()
+        fragment.findNavController().navigate(action)
+    }
+
 }
